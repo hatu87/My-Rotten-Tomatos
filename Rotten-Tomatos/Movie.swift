@@ -13,7 +13,7 @@ class Movie {
     
     var movies: [[String:AnyObject]]?
     
-    func getObjects() -> Void{
+    func getObjects(callback: (data: [[String:AnyObject]]?) -> Void) -> Void{
         guard let url = NSURL(string: Movie.apiUrl) else {
             print ("ERROR: cannot parse to JSON")
             return
@@ -31,8 +31,10 @@ class Movie {
             do{
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
                 self.movies = json["movies"] as! [[String:AnyObject]]
-                
+
                 print ("json:", json)
+                callback(data: self.movies)
+
             }catch  {
                 print ("ERROR: cannot parse to JSON")
             }

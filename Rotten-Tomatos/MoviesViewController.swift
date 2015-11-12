@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var movie = Movie()
     
@@ -16,8 +16,14 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         // Do any additional setup after loading the view.
-        movie.getObjects()
+        movie.getObjects() {(data) -> Void in
+            self.tableView.reloadData()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +32,36 @@ class MoviesViewController: UIViewController {
     }
     
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let movies = movie.movies {
+            return movies.count
+        }else{
+            return 0
+        }
+    }
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieTableViewCell
+        
+        guard let movies = self.movie.movies else{
+            return cell
+        }
+        
+        let movie = movies[indexPath.row]
+        cell.title = String(movie["title"]!)
+        cell.synopsis = movie["synopsis"] as! String
 
+        return cell
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }// Default is 1 if not
     /*
     // MARK: - Navigation
 
