@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -55,13 +56,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies[indexPath.row]
         cell.title = String(movie["title"]!)
         cell.synopsis = movie["synopsis"] as! String
-
+        
+        let posters = movie["posters"] as! [String:String]
+        let url = NSURL(string: posters["thumbnail"]!)!
+        
+        cell.imgThumbnail.image = nil
+        cell.imgThumbnail.setImageWithURL(url)
+        
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }// Default is 1 if not
     /*
     // MARK: - Navigation
 

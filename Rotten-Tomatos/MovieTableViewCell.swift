@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
 
+    @IBOutlet weak var imgThumbnail: UIImageView!
+    
     @IBOutlet weak var lblSynopsis: UILabel!
     var title:String! {
         didSet {

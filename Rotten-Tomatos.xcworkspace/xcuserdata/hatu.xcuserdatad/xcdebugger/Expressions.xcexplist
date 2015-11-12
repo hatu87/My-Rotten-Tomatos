@@ -20,7 +20,10 @@
          contextName = "MoviesViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:MoviesViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "movie[&quot;synpopsis&quot;]">
+               value = "posters[&quot;thumbnail&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "movie[&quot;posters.thumbnail&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -4,6 +4,6 @@
 use_frameworks!
 
 target 'Rotten-Tomatos' do
-	pod ‘AFNetworking’, ‘~> 2.0’
+	pod ‘AFNetworking’
 end
 
