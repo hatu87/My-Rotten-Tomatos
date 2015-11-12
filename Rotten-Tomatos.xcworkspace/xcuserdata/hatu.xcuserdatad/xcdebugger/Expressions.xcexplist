@@ -27,5 +27,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "MovieDetailsViewController.viewDidLoad() -&gt; ():MovieDetailsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "movie[&quot;title&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

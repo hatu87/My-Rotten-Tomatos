@@ -60,20 +60,33 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let posters = movie["posters"] as! [String:String]
         let url = NSURL(string: posters["thumbnail"]!)!
         
-        cell.imgThumbnail.image = nil
-        cell.imgThumbnail.setImageWithURL(url)
+
+        let request = NSURLRequest(URL: url)
         
+        cell.imgThumbnail.setImageWithURLRequest(request, placeholderImage: nil, success: { (req, res, img) -> Void in
+            cell.imgThumbnail.image = img
+            }, failure: { (req, res, error)->Void in
+                print ("ERROR loading image", error)
+        })
+        
+
         return cell
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)!
+        
+        let movie = self.movie.movies![indexPath.row]
+        
+        let movieDetailsViewController = segue.destinationViewController as! MovieDetailsViewController
+        movieDetailsViewController.movie = movie
     }
-    */
-
+    
 }

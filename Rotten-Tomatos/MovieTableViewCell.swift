@@ -15,6 +15,9 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var imgThumbnail: UIImageView!
     
     @IBOutlet weak var lblSynopsis: UILabel!
+    
+
+    
     var title:String! {
         didSet {
             lblTitle.text = self.title
