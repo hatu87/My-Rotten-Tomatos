@@ -12,9 +12,11 @@
 		414A36D61BF48E1B004B4C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414A36D41BF48E1B004B4C5D /* Main.storyboard */; };
 		414A36D81BF48E1B004B4C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 414A36D71BF48E1B004B4C5D /* Assets.xcassets */; };
 		414A36DB1BF48E1B004B4C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414A36D91BF48E1B004B4C5D /* LaunchScreen.storyboard */; };
+		D05588E02204D34234B8EA3B /* Pods_Rotten_Tomatos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB508FA0C1D227B41FC6074 /* Pods_Rotten_Tomatos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1791B70756FF00C8798A774D /* Pods-Rotten-Tomatos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rotten-Tomatos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rotten-Tomatos/Pods-Rotten-Tomatos.release.xcconfig"; sourceTree = "<group>"; };
 		414A36CD1BF48E1B004B4C5D /* Rotten-Tomatos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten-Tomatos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		414A36D01BF48E1B004B4C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		414A36D21BF48E1B004B4C5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		414A36D71BF48E1B004B4C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		414A36DA1BF48E1B004B4C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		414A36DC1BF48E1B004B4C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		908ABC70DC80014B0AD816DA /* Pods-Rotten-Tomatos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rotten-Tomatos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rotten-Tomatos/Pods-Rotten-Tomatos.debug.xcconfig"; sourceTree = "<group>"; };
+		DCB508FA0C1D227B41FC6074 /* Pods_Rotten_Tomatos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rotten_Tomatos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05588E02204D34234B8EA3B /* Pods_Rotten_Tomatos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				414A36CF1BF48E1B004B4C5D /* Rotten-Tomatos */,
 				414A36CE1BF48E1B004B4C5D /* Products */,
+				58104D69BDC5EAF533A18431 /* Pods */,
+				84229F7FED515E359A0DB3EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = "Rotten-Tomatos";
 			sourceTree = "<group>";
 		};
+		58104D69BDC5EAF533A18431 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				908ABC70DC80014B0AD816DA /* Pods-Rotten-Tomatos.debug.xcconfig */,
+				1791B70756FF00C8798A774D /* Pods-Rotten-Tomatos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		84229F7FED515E359A0DB3EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCB508FA0C1D227B41FC6074 /* Pods_Rotten_Tomatos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 414A36DF1BF48E1B004B4C5D /* Build configuration list for PBXNativeTarget "Rotten-Tomatos" */;
 			buildPhases = (
+				23AC4D9388BB0C8416CA7650 /* Check Pods Manifest.lock */,
 				414A36C91BF48E1B004B4C5D /* Sources */,
 				414A36CA1BF48E1B004B4C5D /* Frameworks */,
 				414A36CB1BF48E1B004B4C5D /* Resources */,
+				C5467B3A7C5CF4BCF809EBEB /* Embed Pods Frameworks */,
+				E4A298C678674841817535D4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23AC4D9388BB0C8416CA7650 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C5467B3A7C5CF4BCF809EBEB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rotten-Tomatos/Pods-Rotten-Tomatos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A298C678674841817535D4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rotten-Tomatos/Pods-Rotten-Tomatos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		414A36C91BF48E1B004B4C5D /* Sources */ = {
@@ -245,6 +320,7 @@
 		};
 		414A36E01BF48E1B004B4C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 908ABC70DC80014B0AD816DA /* Pods-Rotten-Tomatos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Rotten-Tomatos/Info.plist";
@@ -256,6 +332,7 @@
 		};
 		414A36E11BF48E1B004B4C5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1791B70756FF00C8798A774D /* Pods-Rotten-Tomatos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Rotten-Tomatos/Info.plist";
@@ -284,6 +361,7 @@
 				414A36E11BF48E1B004B4C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
