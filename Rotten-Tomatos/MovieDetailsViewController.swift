@@ -26,8 +26,15 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        loadingMovie()
+    }
+
+    func loadingMovie(){
+
         lblTitle.text = movie["title"] as! String
         lblSynopsis.text = movie["synopsis"] as! String
+        self.title = lblTitle.text
         
         let posters = self.movie["posters"] as! [String:String]
         let url = NSURL(string: posters["detailed"]!)!
@@ -36,14 +43,15 @@ class MovieDetailsViewController: UIViewController {
         self.startLoading()
         
         imgImage.setImageWithURLRequest(request, placeholderImage: nil, success: { (req, res, img) -> Void in
-                self.imgImage.image = img
-                self.finishLoading()
+            self.imgImage.image = img
+            self.finishLoading()
             }, failure: { (req, res, error)->Void in
                 print ("ERROR loading image", error)
         })
         
+        
     }
-
+    
     func startLoading(){
         self.activityIndicator.hidden=false
         self.activityIndicator.startAnimating()

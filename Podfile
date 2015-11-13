@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'Rotten-Tomatos' do
 	pod ‘AFNetworking’
+    pod 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
 end
 
