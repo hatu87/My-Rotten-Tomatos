@@ -13,6 +13,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     var movie = Movie()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         
         // Do any additional setup after loading the view.
+        self.activityIndicator.startAnimating()
+        
         movie.getObjects() {(data) -> Void in
             self.tableView.reloadData()
+            
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidden=true
         }
 
     }
