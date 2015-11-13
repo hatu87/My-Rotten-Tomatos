@@ -22,17 +22,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         
         // Do any additional setup after loading the view.
-        self.activityIndicator.startAnimating()
+        startLoading()
         
         movie.getObjects() {(data) -> Void in
             self.tableView.reloadData()
             
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidden=true
+            self.finishLoading()
         }
 
     }
 
+    func startLoading(){
+        self.activityIndicator.hidden=false
+        self.activityIndicator.startAnimating()
+    }
+    
+    func finishLoading(){
+        self.activityIndicator.hidden=true
+        self.activityIndicator.stopAnimating()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

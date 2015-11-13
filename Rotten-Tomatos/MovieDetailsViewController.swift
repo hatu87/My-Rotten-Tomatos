@@ -18,6 +18,7 @@ class MovieDetailsViewController: UIViewController {
     }
         
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imgImage: UIImageView!
     @IBOutlet weak var lblSynopsis: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
@@ -31,10 +32,29 @@ class MovieDetailsViewController: UIViewController {
         let posters = self.movie["posters"] as! [String:String]
         let url = NSURL(string: posters["detailed"]!)!
         
-        imgImage.image = nil
-        imgImage.setImageWithURL(url)
+        let request = NSURLRequest(URL: url)
+        self.startLoading()
+        
+        imgImage.setImageWithURLRequest(request, placeholderImage: nil, success: { (req, res, img) -> Void in
+                self.imgImage.image = img
+                self.finishLoading()
+            }, failure: { (req, res, error)->Void in
+                print ("ERROR loading image", error)
+        })
+        
     }
 
+    func startLoading(){
+        self.activityIndicator.hidden=false
+        self.activityIndicator.startAnimating()
+    }
+    
+    func finishLoading(){
+        self.activityIndicator.hidden=true
+        self.activityIndicator.stopAnimating()
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

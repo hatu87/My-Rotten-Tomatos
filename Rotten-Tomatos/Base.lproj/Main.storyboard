@@ -87,11 +87,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b8r-Jt-cXq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b8r-Jt-cXq">
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view alpha="0.5" contentMode="scaleToFill" id="rgq-tt-Rod">
                                 <rect key="frame" x="0.0" y="290" width="320" height="278"/>
@@ -117,12 +117,18 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="qh0-0f-PAJ">
+                                <rect key="frame" x="150" y="158" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GsZ-Kv-euh"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="qh0-0f-PAJ" id="9Ov-Xr-9Bw"/>
                         <outlet property="imgImage" destination="b8r-Jt-cXq" id="4Wv-1n-H9d"/>
                         <outlet property="lblSynopsis" destination="iTc-ed-wHN" id="nBX-zF-Xg4"/>
                         <outlet property="lblTitle" destination="oT0-XR-VYc" id="RQP-IK-Txk"/>
