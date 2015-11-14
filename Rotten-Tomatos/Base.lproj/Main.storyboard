@@ -65,8 +65,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                             </activityIndicatorView>
-                            <view contentMode="top" id="Lbq-G4-UU7" customClass="TopNotificationControl" customModule="Rotten_Tomatos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="320" height="40"/>
+                            <view alpha="0.69999999999999996" contentMode="top" id="Lbq-G4-UU7" customClass="TopNotificationControl" customModule="Rotten_Tomatos" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="65" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hsb-Mx-rSk">

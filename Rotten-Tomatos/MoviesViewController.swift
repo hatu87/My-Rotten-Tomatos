@@ -35,11 +35,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func hideNotification(){
-        self.topErrorNotification.hidden=true
+        self.topErrorNotification.hide()
+        
+
     }
     func showNotification(message: String){
         self.topErrorNotification.message = message
-        self.topErrorNotification.hidden=false
+        self.topErrorNotification.showUp()
     }
     
     func refreshData(){
@@ -48,7 +50,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             guard error == nil else {
                 switch error! {
                 case RottenTomatosError.NoNetwork:
-                    self.showNotification("No network")
+                    self.showNotification("Network Error")
 
                     
                 case RottenTomatosError.WrongJsonFormatResult:
