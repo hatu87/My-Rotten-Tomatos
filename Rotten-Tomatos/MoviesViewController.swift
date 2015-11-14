@@ -14,6 +14,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var movie = Movie()
     var refreshControl: UIRefreshControl!
     
+    @IBOutlet weak var topErrorNotification: TopNotificationControl!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Do any additional setup after loading the view.
         startLoading()
-        
+        hideNotification()
         refreshData()
         
         refreshControl = UIRefreshControl()
@@ -33,13 +34,23 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
 
+    func hideNotification(){
+        self.topErrorNotification.hidden=true
+    }
+    func showNotification(message: String){
+        self.topErrorNotification.message = message
+        self.topErrorNotification.hidden=false
+    }
+    
     func refreshData(){
         movie.getObjects() {(data, error) -> Void in
             
             guard error == nil else {
                 switch error! {
                 case RottenTomatosError.NoNetwork:
-                    print("No network")
+                    self.showNotification("No network")
+
+                    
                 case RottenTomatosError.WrongJsonFormatResult:
                     print("dont handle this yet")
                 case RottenTomatosError.WrongUrlFormat:
@@ -48,11 +59,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 self.finishLoading()
                 self.refreshControl.endRefreshing()
+
                 return
             }
             
             self.tableView.reloadData()
-            
+            self.hideNotification()
             self.finishLoading()
             self.refreshControl.endRefreshing()
         }
