@@ -34,7 +34,23 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func refreshData(){
-        movie.getObjects() {(data) -> Void in
+        movie.getObjects() {(data, error) -> Void in
+            
+            guard error == nil else {
+                switch error! {
+                case RottenTomatosError.NoNetwork:
+                    print("No network")
+                case RottenTomatosError.WrongJsonFormatResult:
+                    print("dont handle this yet")
+                case RottenTomatosError.WrongUrlFormat:
+                    print("dont handle this yet")
+                }
+                
+                self.finishLoading()
+                self.refreshControl.endRefreshing()
+                return
+            }
+            
             self.tableView.reloadData()
             
             self.finishLoading()

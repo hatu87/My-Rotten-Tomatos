@@ -8,14 +8,20 @@
 
 import Foundation
 
+public enum RottenTomatosError: ErrorType {
+    case NoNetwork
+    case WrongJsonFormatResult
+    case WrongUrlFormat
+}
+
 class Movie {
     static var apiUrl = "https://coderschool-movies.herokuapp.com/movies?api_key=xja087zcvxljadsflh214"
     
     var movies: [[String:AnyObject]]?
     
-    func getObjects(callback: (data: [[String:AnyObject]]?) -> Void) -> Void{
+    func getObjects(callback: (data: [[String:AnyObject]]?, error: RottenTomatosError?) -> Void) -> Void{
         guard let url = NSURL(string: Movie.apiUrl) else {
-            print ("ERROR: cannot parse to JSON")
+            callback(data: nil, error: .WrongUrlFormat)
             return
         }
         
@@ -24,7 +30,7 @@ class Movie {
         let task = session.dataTaskWithURL(url) {(data, response, error) -> Void in
             
             guard error == nil else {
-                print ("Error loading URL", error)
+                callback(data: nil, error: .NoNetwork)
                 return
             }
             
@@ -33,7 +39,7 @@ class Movie {
                 self.movies = json["movies"] as! [[String:AnyObject]]
 
                 print ("json:", json)
-                callback(data: self.movies)
+                callback(data: self.movies, error: nil)
 
             }catch  {
                 print ("ERROR: cannot parse to JSON")

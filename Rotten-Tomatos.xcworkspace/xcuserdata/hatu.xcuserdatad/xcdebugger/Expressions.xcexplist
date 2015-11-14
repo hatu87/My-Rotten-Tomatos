@@ -3,18 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "MovieTableViewCell.title.willset:MovieTableViewCell.swift">
-      </ContextState>
-      <ContextState
          contextName = "MovieTableViewCell.title.didset:MovieTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
                value = "lblTitle.text">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Movie.(getObjects(Movie) -&gt; () -&gt; ()).(closure #1):Movie.swift">
       </ContextState>
       <ContextState
          contextName = "MoviesViewController.tableView(UITableView, cellForRowAtIndexPath : NSIndexPath) -&gt; UITableViewCell:MoviesViewController.swift">
@@ -26,6 +20,28 @@
                value = "movie[&quot;posters.thumbnail&quot;]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Movie.getObjects((data : [[String : AnyObject]]?) -&gt; ()) -&gt; ():Movie.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Movie.(getObjects(Movie) -&gt; () -&gt; ()).(closure #1):Movie.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Movie.(getObjects(Movie) -&gt; ((data : [[String : AnyObject]]?) -&gt; ()) -&gt; ()).(closure #1):Movie.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MovieTableViewCell.title.willset:MovieTableViewCell.swift">
       </ContextState>
       <ContextState
          contextName = "MovieDetailsViewController.viewDidLoad() -&gt; ():MovieDetailsViewController.swift">
