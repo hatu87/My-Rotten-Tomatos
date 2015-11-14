@@ -1,6 +1,4 @@
-# TipCalculator
-
-This is a Tip Calculator application for iOS submitted as the [pre-assignment] requirement for codershool.vn
+# Rotten Tomatoes
 
 Time spent: 10 hours
 
