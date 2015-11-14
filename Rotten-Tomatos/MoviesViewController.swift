@@ -12,6 +12,7 @@ import AFNetworking
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var movie = Movie()
+    var refreshControl: UIRefreshControl!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
@@ -24,14 +25,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         startLoading()
         
+        refreshData()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+        
+    }
+
+    func refreshData(){
         movie.getObjects() {(data) -> Void in
             self.tableView.reloadData()
             
             self.finishLoading()
+            self.refreshControl.endRefreshing()
         }
 
     }
-
+    
     func startLoading(){
         self.activityIndicator.hidden=false
         self.activityIndicator.startAnimating()
