@@ -1,19 +1,33 @@
-# Rotten Tomatoes
+## Rotten Tomatoes [(raw)](?raw=1)
 
-Time spent: 10 hours
+This is a movies app displaying box office and top rental DVDs using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
 
-Completed:
-* [x] User can view a list of movies from Rotten Tomatoes. Poster images must be loading asynchronously.
-* [x] User can view movie details by tapping on a cell.
-* [x] User sees loading state while waiting for movies API.
-* [x] User sees error message when there's a networking error. You may not use UIAlertView or a 3rd party library to display the error. See this screenshot for what the error message should look like: .
-* [x] User can pull to refresh the movie list. Guide: Using UIRefreshControl.
-* [] Add a tab bar for Box Office and DVD. (optional)
-* [] Implement segmented control to switch between list view and grid view (optional)
-* [] Add a search bar. (optional)
-* [] All images fade in (optional)
-* [] For the large poster, load the low-res image first, switch to high-res when complete (optional)
-* [] Customize the highlight and selection effect of the cell. (optional)
-* [] Customize the navigation bar. (optional)
+Time spent: 12 hours
 
+### Features
+
+#### Required
+
+- [x] User can view a list of movies. Poster images load asynchronously.
+- [x] User can view movie details by tapping on a cell.
+- [x] User sees loading state while waiting for the API.
+- [x] User sees error message when there is a network error: http://cl.ly/image/1l1L3M460c3C
+- [x] User can pull to refresh the movie list.
+
+#### Optional
+
+- [ ] All images fade in.
+- [ ] For the larger poster, load the low-res first and switch to high-res when complete.
+- [ ] All images should be cached in memory and disk: AppDelegate has an instance of `NSURLCache` and `NSURLRequest` makes a request with `NSURLRequestReturnCacheDataElseLoad` cache policy. I tested it by turning off wifi and restarting the app.
+- [ ] Customize the highlight and selection effect of the cell.
+- [ ] Customize the navigation bar.
+- [ ] Add a tab bar for Box Office and DVD.
+- [ ] Add a search bar: pretty simple implementation of searching against the existing table view data.
+
+### Walkthrough
 ![Video Walkthrough](file.gif)
+
+Credits
+---------
+* [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
